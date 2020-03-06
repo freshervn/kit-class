@@ -18,20 +18,22 @@ LinkedList *Head = NULL;
 
 void Printf(LinkedList *Head);
 void plus(int updateKey, int updateData1, char *updateData2);
-void FindKey(int key);
+LinkedList *FindKey(LinkedList *Head, int key);
+void InSert(LinkedList * Head,int Key,int NewKey,int NewData1, char * NewData2);
 int main()
 {
 
     srand(time(0));
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 10; i++)
     {
 
         plus(i, rand() % 100 + 1, "ABCD");
     }
 
     Printf(Head);
-    FindKey(6);
+    InSert(Head,9,2009,100,"success");
+    Printf(Head);
 
     return 0;
 }
@@ -74,7 +76,7 @@ void Printf(LinkedList *Head)
         new_element = new_element->next_poiter;
     };
 }
-void FindKey(int key)
+LinkedList *FindKey(LinkedList * Head, int key)
 {
     LinkedList *newElement=malloc(sizeof(LinkedList));
     newElement=Head;
@@ -82,19 +84,24 @@ void FindKey(int key)
     {
         if (newElement->key==key)
         {
-           
-        printf("\n key= %d", newElement->key);
-
-        printf("\n data1= %d", newElement->data1);
-
-        printf("\n data2 =%s", newElement->data2);
-
-        printf("\n");
-         return;
+         return newElement;
         }
         newElement=newElement->next_poiter;
        
     }
     printf("key= %d \nNot found they key you want",key);
+    return NULL;
     
+}
+void InSert(LinkedList * Head,int Key,int NewKey,int NewData1, char * NewData2)
+{
+    LinkedList *newElement=malloc(sizeof(LinkedList));
+    if (FindKey(Head,Key)!=NULL)
+    {
+        newElement->key=NewKey;
+        newElement->data1=NewData1;
+        newElement->data2=NewData2;
+        newElement->next_poiter=FindKey(Head,Key)->next_poiter;
+        FindKey(Head,Key)->next_poiter=newElement;
+    }
 }
