@@ -18,19 +18,20 @@ LinkedList *Head = NULL;
 
 void Printf(LinkedList *Head);
 void plush(int updateKey, int updateData1, char *updateData2);
-
+void FindKey(int key);
 int main()
 {
 
     srand(time(0));
 
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < 5; i++)
     {
 
         plush(i, rand() % 100 + 1, "ABCD");
     }
 
     Printf(Head);
+    FindKey(6);
 
     return 0;
 }
@@ -72,4 +73,28 @@ void Printf(LinkedList *Head)
 
         new_element = new_element->next_poiter;
     };
+}
+void FindKey(int key)
+{
+    LinkedList *newElement=malloc(sizeof(LinkedList));
+    newElement=Head;
+    while (newElement!=NULL)
+    {
+        if (newElement->key==key)
+        {
+           
+        printf("\n key= %d", newElement->key);
+
+        printf("\n data1= %d", newElement->data1);
+
+        printf("\n data2 =%s", newElement->data2);
+
+        printf("\n");
+         return;
+        }
+        newElement=newElement->next_poiter;
+       
+    }
+    printf("key= %d \nNot found they key you want",key);
+    
 }
