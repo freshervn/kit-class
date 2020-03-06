@@ -17,7 +17,7 @@ typedef struct liked_list
 LinkedList *Head = NULL;
 
 void Printf(LinkedList *Head);
-void plush(int updateKey, int updateData1, char *updateData2);
+void plus(int updateKey, int updateData1, char *updateData2);
 void FindKey(int key);
 int main()
 {
@@ -27,7 +27,7 @@ int main()
     for (int i = 0; i < 5; i++)
     {
 
-        plush(i, rand() % 100 + 1, "ABCD");
+        plus(i, rand() % 100 + 1, "ABCD");
     }
 
     Printf(Head);
@@ -36,7 +36,7 @@ int main()
     return 0;
 }
 
-void plush(int updateKey, int updateData1, char *updateData2)
+void plus(int updateKey, int updateData1, char *updateData2)
 {
 
     LinkedList *new_element = malloc(sizeof(LinkedList));
