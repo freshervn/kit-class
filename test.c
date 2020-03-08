@@ -14,9 +14,11 @@ LinkedList *Head = NULL;
 
 void Printf(LinkedList *Head);
 void plush( int upateKey, int updateData1, char *updateData2);
-LinkedList *FindKey(LinkedList *Head, int Key);
 void InSert(LinkedList *Head, int Key, int NewKey, int NewData1, char *NewData2);
 void Delete( int key);
+LinkedList *FindKey(LinkedList *Head, int Key);
+
+
 int main()
 {
 
@@ -27,7 +29,7 @@ int main()
     }
     Printf(Head);
     InSert(Head, 3, 9, 100, "new Element");
-    Delete(0);
+    Delete(1);
     Printf(Head);
     return 0;
 }
