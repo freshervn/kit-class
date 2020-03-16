@@ -14,7 +14,7 @@ void printRandoms(int lower, int upper, int count)
 // Driver code 
 int main() 
 { 
-    int lower = 2, upper = 7, count = 5; 
+    int lower = 0, upper = 7, count = 5; 
   
     // Use current time as  
     // seed for random generator 
